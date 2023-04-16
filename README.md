@@ -1,5 +1,3 @@
-# Getting Started with Create React App
-
 Dice Betting Game - Zar Bahis Oyunu
 
 ## Oyun Çeşitleri
