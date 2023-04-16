@@ -1,70 +1,39 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dice Betting Game - Zar Bahis Oyunu
 
-## Available Scripts
+## Oyun Çeşitleri
+### Mini Game :
+ * Hesap: 1.000 Altın
+ * Minimum Bet: 20
+ * Maksimum Bet: 200
 
-In the project directory, you can run:
+### Minor Game :
+ * Hesap: 10.000 Altın
+ * Minimum Bet: 200
+ * Maksimum Bet: 2000
+ 
+### Major Game :
+ * Hesap: 100.000 Altın
+ * Minimum Bet: 2000
+ * Maksimum Bet: 20000
 
-### `npm start`
+## Oyun Mantığı
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Oyuna 3 farklı miktar ile girilebilir. 
+- Low
+- High ve
+- Zar üzerinde bulunan 6 sayıdan birisi
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Oranlar`
 
-### `npm test`
+Low ve High oyununda oranlar 1.44x dir
+Sayı bilinmesi halinde oran 4x dir
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Kazanma ve Kaybetme Mantığı`
 
-### `npm run build`
+* Seçtiğiniz oyun Low ise ve zar 4 den küçük ise koyduğunuz bet miktarının 1.44 katı hesabınıza eklenir.
+* Seçtiğiniz oyun High ise ve zar 3 den büyük ise koyduğunuz bet miktarının 1.44 katı hesabınıza eklenir.
+* Seçtiğiniz oyun sayı ise ve zarın ön yüzünde seçtiğiniz sayı gelirse bet miktarının 4 katı hesabınıza eklenir.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Bu seçeneklere uymayan durumlarda yatırdığınız bet miktarını kaybedersiniz.
