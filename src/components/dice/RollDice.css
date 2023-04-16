@@ -22,6 +22,7 @@ h1 {
   height: 160px;
   transform-style: preserve-3d;
   transition: all 200ms;
+  transform: rotate3d(2, -1, -1, -0.2turn);
 }
 .dice.face-1 {
   transform: rotateX(0);
@@ -55,9 +56,9 @@ h1 {
   position: absolute;
   width: 160px;
   height: 160px;
-  outline: 2px solid #00BBFF;
+  outline:2px solid #dc3545;
   outline-offset: -2px;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgb(255 193 7);
   display: flex;
   justify-content: center;
   align-items: center;

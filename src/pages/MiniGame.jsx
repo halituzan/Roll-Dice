@@ -13,7 +13,7 @@ export default function MiniGame() {
   const [selectBet, setSelectBet] = useState(null);
 
   const [intrvl, setIntrvl] = useState();
-  const [diceFace, setDiceFace] = useState(1);
+  const [diceFace, setDiceFace] = useState(null);
   const [rollTimes, setRollTimes] = useState();
 
   const faces = 6;
@@ -29,29 +29,64 @@ export default function MiniGame() {
     }
   });
 
-  const resultDice = (counter, diceNumber) => {
-    if (counter === 0) {
-      if (diceNumber < 4 && choice === "Low") {
-        setMiniAccount({
-          ...miniAccount,
-          account: account + parseFloat((bet * 1.44).toFixed(2)),
-        });
-        toast.success((bet * 1.44).toFixed(2) + "☘ Kazandınız");
-      } else if (diceNumber > 3 && choice === "High") {
-        setMiniAccount({
-          ...miniAccount,
-          account: account + parseFloat((bet * 1.44).toFixed(2)),
-        });
-        toast.success((bet * 1.44).toFixed(2) + "☘ Kazandınız");
-      } else if (diceNumber === 1 && choice === "one") {
-        setMiniAccount({
-          ...miniAccount,
-          account: account + parseFloat((bet * 4).toFixed(2)),
-        });
-        toast.success((bet * 4).toFixed(2) + "☘ Kazandınız");
-      } else {
-        toast.warning("Kaybettiniz");
-      }
+  useEffect(() => {
+    if (rollTimes === 0) {
+      clearInterval(intrvl);
+      resultDice(diceFace);
+    }
+  }, [rollTimes]);
+
+  const resultDice = (diceNumber) => {
+    if (diceNumber < 4 && choice === "Low") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 1.44).toFixed(2)),
+      });
+      toast.success((bet * 1.44).toFixed(2) + "☘ Kazandınız");
+    } else if (diceNumber > 3 && choice === "High") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 1.44).toFixed(2)),
+      });
+      toast.success((bet * 1.44).toFixed(2) + "☘ Kazandınız");
+    } else if (diceNumber === 1 && choice === "one") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 4).toFixed(2)),
+      });
+      toast.success((bet * 4).toFixed(2) + "☘ Kazandınız");
+    } else if (diceNumber === 2 && choice === "two") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 4).toFixed(2)),
+      });
+      toast.success((bet * 4).toFixed(2) + "☘ Kazandınız");
+    } else if (diceNumber === 3 && choice === "three") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 4).toFixed(2)),
+      });
+      toast.success((bet * 4).toFixed(2) + "☘ Kazandınız");
+    } else if (diceNumber === 4 && choice === "four") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 4).toFixed(2)),
+      });
+      toast.success((bet * 4).toFixed(2) + "☘ Kazandınız");
+    } else if (diceNumber === 5 && choice === "five") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 4).toFixed(2)),
+      });
+      toast.success((bet * 4).toFixed(2) + "☘ Kazandınız");
+    } else if (diceNumber === 6 && choice === "six") {
+      setMiniAccount({
+        ...miniAccount,
+        account: account + parseFloat((bet * 4).toFixed(2)),
+      });
+      toast.success((bet * 4).toFixed(2) + "☘ Kazandınız");
+    } else {
+      toast.warning("Kaybettiniz");
     }
   };
 
@@ -71,20 +106,28 @@ export default function MiniGame() {
         setDiceFace(Math.floor(Math.random() * faces) + 1);
         counter--;
         setRollTimes(counter);
-        resultDice(counter, diceFace);
       }, 100);
 
       setIntrvl(interval);
     }
   }
   const betSelectHandler = () => {
-    setSelectBet(bet);
-    setMiniAccount({ ...miniAccount, account: miniAccount.account - bet });
+    if (miniAccount.account < account-bet) {
+      console.log(bet)
+      setSelectBet(account);
+      setMiniAccount({ ...miniAccount, account: account });
+    } else {
+      console.log(bet)
+      console.log(account)
+      setSelectBet(bet);
+      setMiniAccount({ ...miniAccount, account: account - bet });
+    }
   };
-
+  // console.log(diceFace);
+  // console.log(choice);
   return (
     <div className="d-flex">
-      <div className="left  bg-light vh-100">
+      <div className="left bg-light vh-100">
         <RollDice diceFace={diceFace} />
       </div>
       <div className="right bg-black text-light vh-100 p-5 d-flex flex-column justify-content-start align-items-center">
@@ -108,21 +151,27 @@ export default function MiniGame() {
                 <button
                   type="button"
                   name="Low"
-                  className="btn btn-warning w-100 my-2 mx-2"
+                  className="btn btn-warning w-100 my-2 mx-2 position-relative"
                   onClick={(e) => setChoise(e.target.name)}
                 >
                   Low
+                  <span className="dice-lh position-absolute text-white translate-middle top-0 start-0 bg-success  rounded-circle fw-bold">
+                    1.44
+                  </span>
                 </button>
                 <button
                   type="button"
-                  className="btn btn-danger w-100 my-2 mx-2"
+                  className="btn btn-danger w-100 my-2 mx-2 position-relative"
                   name="High"
                   onClick={(e) => setChoise(e.target.name)}
                 >
                   High
+                  <span className="dice-lh position-absolute translate-middle top-0 start-0 bg-success  rounded-circle fw-bold">
+                    1.44
+                  </span>
                 </button>
               </div>
-              <div className="dice-number d-flex justify-content-center">
+              <div className="dice-number position-relative d-flex justify-content-evenly p-1 border">
                 <img
                   src="/dice-numbers/1.svg"
                   alt="one"
@@ -159,6 +208,9 @@ export default function MiniGame() {
                   name="six"
                   onClick={(e) => setChoise(e.target.name)}
                 />
+                <span className="py-1 px-1 position-absolute translate-middle top-50 start-0 bg-success rounded-circle fw-bold">
+                  4 x
+                </span>
               </div>
             </div>
           </div>
@@ -202,7 +254,7 @@ export default function MiniGame() {
 
           <div
             className={
-              choice === ""
+              choice === "" || account <= 0
                 ? "d-none"
                 : "bet-amount mt-3 d-flex flex-column justify-content-center align-items-center mb-3"
             }
@@ -275,12 +327,12 @@ export default function MiniGame() {
             </div>
           </div>
         </div>
-        <div className="dice mt-3 d-flex flex-column justify-content-center align-items-center">
+        <div className="dice-button mt-3 d-flex flex-column justify-content-center align-items-center">
           <img
             src="/dice.svg"
             alt="dice"
             onClick={rollDice}
-            className={selectBet === null ? "d-none" : ""}
+            className={selectBet === null || account <= 0 ? "d-none" : ""}
           />
         </div>
       </div>

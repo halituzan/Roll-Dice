@@ -61,7 +61,6 @@ function RollDice({ diceFace }) {
   return (
     <div className="main-container vh-100 d-flex justify-content-center align-items-center">
       <div className="main-dice-container">{dice}</div>
-      {/* <div className="button-container">{rollButton}</div> */}
     </div>
   );
 }
