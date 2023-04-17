@@ -328,12 +328,14 @@ export default function MiniGame() {
           </div>
         </div>
         <div className="dice-button mt-3 d-flex flex-column justify-content-center align-items-center">
-          <img
+         <a href="#root">
+         <img
             src="/dice.svg"
             alt="dice"
             onClick={rollDice}
             className={selectBet === null || account <= 0 ? "d-none" : ""}
           />
+         </a>
         </div>
       </div>
 
