@@ -126,11 +126,11 @@ export default function MiniGame() {
   // console.log(diceFace);
   // console.log(choice);
   return (
-    <div className="d-flex">
-      <div className="left bg-light vh-100">
+    <div className="d-flex flex-column flex-lg-row roll">
+      <div className="left dice-area bg-light">
         <RollDice diceFace={diceFace} />
       </div>
-      <div className="right bg-black text-light vh-100 p-5 d-flex flex-column justify-content-start align-items-center">
+      <div className="right bet-area bg-black text-light vh-100 p-5 d-flex flex-column justify-content-start align-items-center">
         <h1 className="border p-3 bg-white text-dark">{miniAccount.betName}</h1>
         <div>
           <div className="d-flex me-2 fs-1 border-bottom border-1">
@@ -337,7 +337,7 @@ export default function MiniGame() {
         </div>
       </div>
 
-      <ToastContainer position="top-left" style={{ zIndex: "40" }} />
+      <ToastContainer position="bottom-left" autoClose={200} style={{ zIndex: "40" }} />
     </div>
   );
 }

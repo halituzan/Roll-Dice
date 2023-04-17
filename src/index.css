@@ -58,7 +58,6 @@ input[type="number"] {
   width: 100px;
 }
 .dice-button img:hover {
-  
   animation: dice-rotate 2.5s linear infinite;
   cursor: pointer;
 }
@@ -67,13 +66,68 @@ input[type="number"] {
     transform: rotate(360deg);
   }
 }
-.right{
+.right {
   width: 40%;
 }
-.left{
+.left {
   width: 60%;
 }
 .dice-lh {
   font-size: 10px;
   padding: 0.5rem 0.3rem;
+}
+.footer {
+  height: 40px;
+  box-shadow: 0px 0px 2px 2px #eaeaea;
+}
+.footer a {
+  color: #fff;
+  display: flex;
+  font-size: 28px;
+  margin: 0 5px;
+}
+.footer a:hover {
+  color: #eaaf00;
+  display: flex;
+  font-size: 28px;
+  margin: 0 5px;
+}
+@media screen and (max-width: 992px) {
+  .home-cards {
+    padding-top: 10rem;
+  }
+  .card {
+    margin-bottom: 15px !important;
+  }
+  .App {
+    padding-bottom: 160px;
+  }
+  .dice-area {
+    width: 100% !important;
+    height: 40% !important;
+  }
+  .dice-area .main-container {
+    align-items: start !important;
+    height: auto !important;
+  }
+  .main-dice-container {
+    margin-bottom: 0 !important;
+  }
+  .bet-area {
+    width: 100% !important;
+    height:80%!important;
+    padding-top: 10px!important;
+  }
+  .dice-button {
+    position: fixed;
+    top:30%;
+    left: 15px;
+    
+  }
+  .dice-button img{
+    width: 60px;
+  }
+  .roll{
+    height: 100vh;
+  }
 }
