@@ -93,6 +93,9 @@ input[type="number"] {
   margin: 0 5px;
 }
 @media screen and (max-width: 992px) {
+  body{
+    background-color: #000;
+  }
   .home-cards {
     padding-top: 10rem;
   }
@@ -105,6 +108,7 @@ input[type="number"] {
   .dice-area {
     width: 100% !important;
     height: 25% !important;
+    background-color: white!important;
   }
   .dice-area .main-container {
     align-items: start !important;
