@@ -104,7 +104,7 @@ input[type="number"] {
   }
   .dice-area {
     width: 100% !important;
-    height: 40% !important;
+    height: 25% !important;
   }
   .dice-area .main-container {
     align-items: start !important;
@@ -115,23 +115,26 @@ input[type="number"] {
   }
   .bet-area {
     width: 100% !important;
-    height:80%!important;
-    padding-top: 10px!important;
+    height: 75% !important;
+    padding-top: 10px !important;
   }
-  .dice-button {
+  .dice-button img {
+    width: 75px;
+  }
+  /* .dice-button {
     position: fixed;
     bottom:15px;
     left: 15px;
     background-color: white;
     /* border: 1px solid rgba(0, 0, 0, 0.508); */
-    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.508);
+  /* box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.508);
     border-radius: 50%;
-    padding: 10px;
-  }
-  .dice-button img{
+    padding: 10px; */
+  /* } */
+  /* .dice-button img{
     width: 60px;
-  }
-  .roll{
+  } */
+  .roll {
     height: 100vh;
   }
 }

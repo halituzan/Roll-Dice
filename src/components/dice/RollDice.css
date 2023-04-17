@@ -1,4 +1,3 @@
-
 h1 {
   text-align: center;
 }
@@ -44,8 +43,8 @@ h1 {
 }
 .dot-container {
   display: grid;
-  grid-template-columns: repeat(3,28.8px);
-  grid-template-rows: repeat(3,28.8px);
+  grid-template-columns: repeat(3, 28.8px);
+  grid-template-rows: repeat(3, 28.8px);
   grid-gap: 7.2px 7.2px;
 }
 .dot {
@@ -56,7 +55,7 @@ h1 {
   position: absolute;
   width: 160px;
   height: 160px;
-  outline:2px solid #dc3545;
+  outline: 2px solid #dc3545;
   outline-offset: -2px;
   background-color: rgb(255 193 7);
   display: flex;
@@ -179,9 +178,88 @@ h1 {
   cursor: pointer;
 }
 .dan-btn[disabled] {
-  opacity: .4;
+  opacity: 0.4;
 }
 .dan-btn--default {
   background-color: #dddddd;
   color: #444;
+}
+
+@media screen and (max-width: 992px) {
+
+  .dice-container {
+    height: 90px;
+    width: 90px;
+    perspective: 1000px;
+  }
+  .dice {
+    width: 90px;
+    height: 90px;
+    transform-style: preserve-3d;
+    transition: all 200ms;
+    transform: rotate3d(2, -1, -1, -0.2turn);
+  }
+  .dice.face-1 {
+    transform: rotateX(0);
+  }
+  .dice.face-2 {
+    transform: rotateY(90deg);
+  }
+  .dice.face-3 {
+    transform: rotateX(-90deg);
+  }
+  .dice.face-4 {
+    transform: rotateX(90deg);
+  }
+  .dice.face-5 {
+    transform: rotateY(-90deg);
+  }
+  .dice.face-6 {
+    transform: rotateX(-180deg);
+  }
+  .dot-container {
+    display: grid;
+    grid-template-columns: repeat(3, 20px);
+    grid-template-rows: repeat(3, 20px);
+    grid-gap: 1px;
+    /* grid-gap: 7.2px 7.2px; */
+  }
+  .dot {
+    background-color: black;
+    border-radius: 50%;
+    width: 75%;
+    height: 75%;
+  }
+  .dice [class^="face"] {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    outline: 2px solid #dc3545;
+    outline-offset: -2px;
+    background-color: rgb(255 193 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dice .face-1 {
+    transform: translateX(0) translateY(0) translateZ(45px);
+  }
+  .dice .face-2 {
+    transform: translateX(-50%) translateY(0%) translateZ(0) rotateY(90deg);
+  }
+  .dice .face-3 {
+    transform: translateX(0) translateY(-50%) translateZ(0) rotateX(90deg);
+  }
+
+  .dice .face-4 {
+    transform: translateX(0) translateY(50%) translateZ(0) rotateX(90deg);
+  }
+
+  .dice .face-5 {
+    transform: translateX(50%) translateY(0%) translateZ(0) rotateY(90deg);
+  }
+
+  .dice .face-6 {
+    transform: translateX(0) translateY(0) translateZ(-45px);
+  }
 }
